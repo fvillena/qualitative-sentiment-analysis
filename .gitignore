@@ -1,5 +1,6 @@
 /data
 /reports
+/results
 .vscode
 __pycache__
 *.pyc
