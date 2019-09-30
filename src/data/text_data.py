@@ -26,7 +26,7 @@ class Preprocessor:
                 sentence = dialog[1]
                 sentence_normalized = normalizer(sentence)
                 doc = nlp(sentence_normalized)
-                sentence_tokenized = [token.lemma_ for token in doc if ' ' not in token.lemma_]
+                sentence_tokenized = [token.lemma_ for token in doc if ((' ' not in token.lemma_) and (not token.is_stop))]
                 self.surveys_tokenized[survey].append((subject,sentence_tokenized))
     def write_surveys(self, surveys_destination):
         with open(surveys_destination, 'w', encoding='utf-8') as json_file:
